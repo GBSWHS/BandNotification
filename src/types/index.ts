@@ -6,7 +6,7 @@ import Client from '../classes/Client'
 export interface Config {
   prefix: string
   token: string
-  [key: string]: string
+  [key: string]: any
 }
 
 export interface Command {

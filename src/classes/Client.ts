@@ -21,11 +21,12 @@ export default class extends Client {
 
     if (isConfigExists) {
       const configRaw = readFileSync(configPath).toString('utf-8')
-      const config = JSON.parse(configRaw)
+      const { token, prefix, ...etc } = JSON.parse(configRaw)
 
       this.config = {
-        token: config.token || process.env.TOKEN || '',
-        prefix: config.prefix || process.env.PREFIX || '!'
+        token: token || process.env.TOKEN || '',
+        prefix: prefix || process.env.PREFIX || '!',
+        ...etc
       }
     } else {
       this.config = {
