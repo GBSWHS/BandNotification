@@ -15,7 +15,7 @@ export default async function (client: Client, msg: Message) {
   let postIndex = 0
 
   nextPost()
-  m.react('➡️')
+  await m.react('➡️')
   m.createReactionCollector((r) => r.emoji.name === '➡️', { dispose: true })
     .on('collect', nextPost).on('remove', nextPost)
 
